@@ -11,57 +11,70 @@ export const metadata: Metadata = {
 export default function PracticeAreasPage() {
   return (
     <>
-      <section className="bg-navy-dark text-white py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-gold uppercase tracking-[0.2em] text-sm font-medium mb-4">
-            Our Expertise
-          </p>
-          <h1 className="font-heading text-4xl md:text-5xl max-w-3xl">
-            Employment Law <span className="text-gold italic">Practice Areas</span>
+      {/* ── HERO ── */}
+      <section className="relative bg-navy-dark text-white overflow-hidden pt-[180px] pb-[130px]">
+        <span className="ghost-text bottom-0 left-0 -translate-x-[5%] translate-y-[15%]">
+          Practice
+        </span>
+
+        <div className="container-main relative z-10">
+          <p className="section-label">Our Expertise</p>
+          <h1 className="font-heading text-4xl md:text-5xl lg:text-[60px] lg:leading-[70px] text-white capitalize max-w-3xl mb-6">
+            Defending Your Rights, Delivering{" "}
+            <span className="text-gold italic">Peace of Mind</span>
           </h1>
-          <p className="text-white/70 text-lg mt-4 max-w-2xl">
+          <p className="text-white/50 text-lg max-w-[700px]">
             We <em>exclusively</em> represent employees in labor and management disputes across New York.
+            Each practice area below represents years of focused legal expertise.
           </p>
+          <a href="#consultation" className="btn-primary mt-8 inline-block">
+            Ask For Consultation
+          </a>
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {practiceAreas.map((area) => (
+      {/* ── PRACTICE AREAS LIST ── */}
+      <section className="section-padding">
+        <div className="container-main">
+          <div className="text-center mb-16">
+            <h2 className="font-heading text-3xl md:text-4xl text-navy capitalize">
+              Explore Our <span className="text-gold">Practice</span> Areas
+            </h2>
+          </div>
+
+          <div>
+            {practiceAreas.map((area, idx) => (
               <Link
                 key={area.slug}
                 href={`/practice-areas/${area.slug}`}
-                className="group bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-gold/30"
+                className="accordion-row group"
               >
-                <h2 className="font-heading text-xl text-navy mb-3 group-hover:text-steel transition-colors">
-                  {area.title}
-                </h2>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                  {area.heroDescription}
-                </p>
-                <span className="inline-flex items-center gap-2 text-steel text-sm font-medium group-hover:text-gold transition-colors">
-                  Learn More
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                <span className="accordion-number">
+                  {String(idx + 1).padStart(2, "0")}
                 </span>
+                <span className="accordion-title group-hover:text-gold transition-colors">
+                  {area.title}
+                </span>
+                <span className="accordion-desc">
+                  {area.heroDescription.slice(0, 100)}...
+                </span>
+                <svg className="accordion-arrow w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-navy text-white text-center">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="font-heading text-3xl mb-4">Need Legal Help?</h2>
-          <p className="text-white/70 mb-8">
+      {/* ── CTA ── */}
+      <section className="py-20 bg-navy text-white text-center">
+        <div className="container-main">
+          <h2 className="font-heading text-3xl capitalize mb-4">Need Legal Help?</h2>
+          <p className="text-white/50 mb-8 max-w-xl mx-auto">
             Contact us for a free consultation. We don&apos;t charge any fees unless we win.
           </p>
-          <a
-            href="tel:212-832-1000"
-            className="inline-block bg-gold text-navy-dark px-8 py-4 rounded font-medium hover:bg-gold-light transition-colors uppercase tracking-wider"
-          >
+          <a href="tel:212-832-1000" className="btn-primary">
             Call 212-832-1000
           </a>
         </div>

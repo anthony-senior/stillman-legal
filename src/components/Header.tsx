@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const employmentServices = [
   { label: "Wage Manipulation", href: "/practice-areas/wage-manipulation" },
@@ -33,28 +33,35 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [empOpen, setEmpOpen] = useState(false);
   const [immOpen, setImmOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      setScrolled(currentY > 50);
+      if (currentY > lastScrollY.current && currentY > 200) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
+      lastScrollY.current = currentY;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="bg-navy-dark text-white sticky top-0 z-50">
-      {/* Top bar */}
-      <div className="bg-navy border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-10 text-sm">
-          <span className="text-gold font-heading italic hidden sm:block">
-            The Law Firm For The Working People
-          </span>
-          <a
-            href="tel:212-832-1000"
-            className="text-gold hover:text-gold-light transition-colors font-medium"
-          >
-            Call: 212-832-1000
-          </a>
-        </div>
-      </div>
-
-      {/* Main nav */}
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <Link href="/" className="flex-shrink-0">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        visible ? "translate-y-0" : "-translate-y-full"
+      } ${scrolled ? "bg-navy-dark/95 backdrop-blur-sm shadow-lg" : "bg-transparent"}`}
+    >
+      <nav className="container-main">
+        <div className="flex justify-between items-center h-[90px]">
+          {/* Logo */}
+          <Link href="/" className="flex-shrink-0 relative z-10">
             <Image
               src="/images/logo.png"
               alt="Stillman Legal P.C."
@@ -65,83 +72,108 @@ export function Header() {
             />
           </Link>
 
-          {/* Desktop nav */}
+          {/* Desktop nav - center */}
           <div className="hidden lg:flex items-center gap-8">
-            <Link href="/" className="text-white hover:text-gold transition-colors">
+            <Link href="/" className="text-white/90 hover:text-gold transition-colors text-[15px] font-light">
               Home
             </Link>
-            <Link href="/about" className="text-white hover:text-gold transition-colors">
+            <Link href="/about" className="text-white/90 hover:text-gold transition-colors text-[15px] font-light">
               About
             </Link>
 
             {/* Employment dropdown */}
             <div
-              className="relative group"
+              className="relative"
               onMouseEnter={() => setEmpOpen(true)}
               onMouseLeave={() => setEmpOpen(false)}
             >
-              <button className="text-white hover:text-gold transition-colors flex items-center gap-1">
+              <button className="text-white/90 hover:text-gold transition-colors flex items-center gap-1.5 text-[15px] font-light">
                 Employment Services
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg
+                  className={`w-3.5 h-3.5 transition-transform duration-300 ${empOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              {empOpen && (
-                <div className="absolute top-full left-0 bg-navy-dark border border-white/10 rounded-lg shadow-2xl py-2 min-w-[280px]">
+              <div
+                className={`absolute top-full left-0 pt-4 transition-all duration-300 ${
+                  empOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-3 pointer-events-none"
+                }`}
+              >
+                <div className="bg-navy-dark/95 backdrop-blur-sm border border-white/10 shadow-2xl py-3 min-w-[300px]">
                   {employmentServices.map((s) => (
                     <Link
                       key={s.href}
                       href={s.href}
-                      className="block px-4 py-2 text-sm text-white/80 hover:text-gold hover:bg-white/5 transition-colors"
+                      className="flex items-center justify-between px-5 py-2.5 text-sm text-white/70 hover:text-gold hover:bg-white/5 transition-all group"
                     >
-                      {s.label}
+                      <span>{s.label}</span>
+                      <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
                     </Link>
                   ))}
                 </div>
-              )}
+              </div>
             </div>
 
             {/* Immigration dropdown */}
             <div
-              className="relative group"
+              className="relative"
               onMouseEnter={() => setImmOpen(true)}
               onMouseLeave={() => setImmOpen(false)}
             >
-              <button className="text-white hover:text-gold transition-colors flex items-center gap-1">
+              <button className="text-white/90 hover:text-gold transition-colors flex items-center gap-1.5 text-[15px] font-light">
                 Immigration Services
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg
+                  className={`w-3.5 h-3.5 transition-transform duration-300 ${immOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              {immOpen && (
-                <div className="absolute top-full left-0 bg-navy-dark border border-white/10 rounded-lg shadow-2xl py-2 min-w-[280px]">
+              <div
+                className={`absolute top-full left-0 pt-4 transition-all duration-300 ${
+                  immOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-3 pointer-events-none"
+                }`}
+              >
+                <div className="bg-navy-dark/95 backdrop-blur-sm border border-white/10 shadow-2xl py-3 min-w-[300px]">
                   {immigrationServices.map((s) => (
                     <Link
                       key={s.href}
                       href={s.href}
-                      className="block px-4 py-2 text-sm text-white/80 hover:text-gold hover:bg-white/5 transition-colors"
+                      className="flex items-center justify-between px-5 py-2.5 text-sm text-white/70 hover:text-gold hover:bg-white/5 transition-all group"
                     >
-                      {s.label}
+                      <span>{s.label}</span>
+                      <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
                     </Link>
                   ))}
                 </div>
-              )}
+              </div>
             </div>
 
-            <Link href="/contact" className="text-white hover:text-gold transition-colors">
+            <Link href="/contact" className="text-white/90 hover:text-gold transition-colors text-[15px] font-light">
               Contact
             </Link>
-            <a
-              href="#consultation"
-              className="bg-gold text-navy-dark px-6 py-2.5 rounded font-medium hover:bg-gold-light transition-colors text-sm uppercase tracking-wider"
-            >
+          </div>
+
+          {/* CTA button - right */}
+          <div className="hidden lg:block">
+            <a href="#consultation" className="btn-primary">
               Free Consultation
             </a>
           </div>
 
           {/* Mobile hamburger */}
           <button
-            className="lg:hidden text-white p-2"
+            className="lg:hidden text-white p-2 relative z-10"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -158,76 +190,80 @@ export function Header() {
         </div>
 
         {/* Mobile menu */}
-        {mobileOpen && (
-          <div className="lg:hidden border-t border-white/10 py-4 space-y-2">
-            <Link href="/" className="block py-2 text-white hover:text-gold" onClick={() => setMobileOpen(false)}>
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-500 ${
+            mobileOpen ? "max-h-[80vh] opacity-100 pb-8" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="border-t border-white/10 pt-6 space-y-2">
+            <Link href="/" className="block py-3 text-white hover:text-gold transition-colors" onClick={() => setMobileOpen(false)}>
               Home
             </Link>
-            <Link href="/about" className="block py-2 text-white hover:text-gold" onClick={() => setMobileOpen(false)}>
+            <Link href="/about" className="block py-3 text-white hover:text-gold transition-colors" onClick={() => setMobileOpen(false)}>
               About
             </Link>
             <div>
               <button
-                className="w-full text-left py-2 text-white hover:text-gold flex justify-between"
+                className="w-full text-left py-3 text-white hover:text-gold flex justify-between items-center"
                 onClick={() => setEmpOpen(!empOpen)}
               >
                 Employment Services
-                <svg className={`w-4 h-4 transition-transform ${empOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className={`w-4 h-4 transition-transform duration-300 ${empOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              {empOpen && (
-                <div className="pl-4 space-y-1">
+              <div className={`overflow-hidden transition-all duration-300 ${empOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}`}>
+                <div className="pl-4 space-y-1 pb-2">
                   {employmentServices.map((s) => (
                     <Link
                       key={s.href}
                       href={s.href}
-                      className="block py-1.5 text-sm text-white/70 hover:text-gold"
+                      className="block py-2 text-sm text-white/60 hover:text-gold transition-colors"
                       onClick={() => setMobileOpen(false)}
                     >
                       {s.label}
                     </Link>
                   ))}
                 </div>
-              )}
+              </div>
             </div>
             <div>
               <button
-                className="w-full text-left py-2 text-white hover:text-gold flex justify-between"
+                className="w-full text-left py-3 text-white hover:text-gold flex justify-between items-center"
                 onClick={() => setImmOpen(!immOpen)}
               >
                 Immigration Services
-                <svg className={`w-4 h-4 transition-transform ${immOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className={`w-4 h-4 transition-transform duration-300 ${immOpen ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              {immOpen && (
-                <div className="pl-4 space-y-1">
+              <div className={`overflow-hidden transition-all duration-300 ${immOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"}`}>
+                <div className="pl-4 space-y-1 pb-2">
                   {immigrationServices.map((s) => (
                     <Link
                       key={s.href}
                       href={s.href}
-                      className="block py-1.5 text-sm text-white/70 hover:text-gold"
+                      className="block py-2 text-sm text-white/60 hover:text-gold transition-colors"
                       onClick={() => setMobileOpen(false)}
                     >
                       {s.label}
                     </Link>
                   ))}
                 </div>
-              )}
+              </div>
             </div>
-            <Link href="/contact" className="block py-2 text-white hover:text-gold" onClick={() => setMobileOpen(false)}>
+            <Link href="/contact" className="block py-3 text-white hover:text-gold transition-colors" onClick={() => setMobileOpen(false)}>
               Contact
             </Link>
             <a
               href="#consultation"
-              className="block text-center bg-gold text-navy-dark px-6 py-3 rounded font-medium mt-4 uppercase tracking-wider"
+              className="block text-center btn-primary mt-4"
               onClick={() => setMobileOpen(false)}
             >
               Free Consultation
             </a>
           </div>
-        )}
+        </div>
       </nav>
     </header>
   );

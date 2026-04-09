@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
+  /* Stillman Legal brand colors */
   --color-navy: #030D28;
   --color-navy-dark: #020714;
   --color-navy-light: #0a1a3f;
@@ -8,12 +9,16 @@
   --color-steel-light: #7a9ad0;
   --color-gold: #D0A787;
   --color-gold-light: #e0c4ad;
+  --color-gold-10: rgba(208, 167, 135, 0.1);
+  --color-gold-20: rgba(208, 167, 135, 0.2);
   --color-warm: #EDE3DA;
   --color-warm-light: #f5efe9;
+  --color-offwhite: #fdfcfa;
   --color-white: #ffffff;
   --color-gray-100: #f8f8f8;
   --color-gray-200: #e5e5e5;
   --color-gray-400: #9ca3af;
+  --color-gray-500: #686868;
   --color-gray-600: #555555;
   --color-gray-800: #333333;
   --color-red: #990000;
@@ -29,8 +34,315 @@ body {
   font-family: var(--font-body);
   color: var(--color-gray-800);
   background: var(--color-white);
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 300;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+/* ============================================
+   CONTAINER & LAYOUT
+   ============================================ */
+
+.container-main {
+  max-width: 1230px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.section-padding {
+  padding-top: 120px;
+  padding-bottom: 130px;
+}
+
+/* ============================================
+   GHOST TEXT WATERMARK
+   ============================================ */
+
+.ghost-text {
+  position: absolute;
+  font-family: var(--font-heading);
+  font-size: clamp(160px, 18vw, 350px);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.03);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  line-height: 0.8;
+}
+
+.ghost-text-dark {
+  color: rgba(0, 0, 0, 0.03);
+}
+
+/* ============================================
+   BUTTONS (Legalix style)
+   On hover: lose fill, show border, radius snaps to 0
+   ============================================ */
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--color-gold);
+  color: var(--color-navy-dark);
+  padding: 14px 35px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 2px solid var(--color-gold);
+  border-radius: 0;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  font-family: var(--font-body);
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--color-gold);
+  border-radius: 0;
+}
+
+.btn-outline {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--color-white);
+  padding: 14px 35px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  font-family: var(--font-body);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+/* ============================================
+   LINK EFFECTS
+   ============================================ */
+
+.link-slide {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.3s ease;
+}
+
+.link-slide:hover {
+  transform: translateX(15px);
+}
+
+/* ============================================
+   HIGHLIGHT BOX (Article at a Glance)
+   ============================================ */
+
+.highlight-box {
+  background-color: var(--color-gold-10);
+  padding: 40px 48px;
+  border-left: 3px solid var(--color-gold);
+  margin: 48px 0;
+}
+
+.highlight-box h4 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-navy);
+  margin-bottom: 16px;
+}
+
+.highlight-box ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.highlight-box li {
+  margin-bottom: 8px;
+  color: var(--color-gray-600);
+}
+
+/* ============================================
+   VERTICAL DIVIDERS
+   ============================================ */
+
+.vertical-divider {
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.15);
+  align-self: stretch;
+}
+
+.vertical-divider-dark {
+  width: 1px;
+  background-color: rgba(0, 0, 0, 0.12);
+  align-self: stretch;
+}
+
+/* ============================================
+   SECTION LABEL
+   ============================================ */
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 16px;
+}
+
+/* ============================================
+   ACCORDION ROWS (Practice areas listing)
+   ============================================ */
+
+.accordion-row {
+  display: flex;
+  align-items: center;
+  padding: 36px 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.accordion-row:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion-row:hover {
+  background-color: var(--color-gold-10);
+  padding-left: 36px;
+}
+
+.accordion-row:hover .accordion-arrow {
+  transform: translateX(5px);
+  color: var(--color-gold);
+}
+
+.accordion-number {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-gold);
+  min-width: 50px;
+  letter-spacing: 0.05em;
+}
+
+.accordion-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-navy);
+  flex: 1;
+  padding-right: 30px;
+}
+
+.accordion-desc {
+  color: var(--color-gray-500);
+  font-size: 0.9rem;
+  flex: 1;
+  padding-right: 30px;
+  display: none;
+}
+
+.accordion-arrow {
+  transition: all 0.3s ease;
+  color: var(--color-navy);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .accordion-desc {
+    display: block;
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* ============================================
+   ARTICLE CONTENT STYLES
+   ============================================ */
+
+.article-content h4 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-navy);
+  margin-top: 48px;
+  margin-bottom: 20px;
+}
+
+.article-content p {
+  color: var(--color-gray-500);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.article-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.article-content ul li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+  color: var(--color-gray-600);
+}
+
+.article-content ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+}
+
+/* ============================================
+   FAQ ACCORDION
+   ============================================ */
+
+.faq-item summary {
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
 }

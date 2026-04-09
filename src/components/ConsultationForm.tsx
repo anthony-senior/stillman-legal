@@ -19,7 +19,7 @@ const caseTypes = [
   "Immigration",
 ];
 
-export function ConsultationForm({ variant = "default" }: { variant?: "default" | "compact" }) {
+export function ConsultationForm() {
   const [submitted, setSubmitted] = useState(false);
 
   if (submitted) {
@@ -31,7 +31,7 @@ export function ConsultationForm({ variant = "default" }: { variant?: "default" 
           </svg>
         </div>
         <h3 className="font-heading text-2xl text-navy mb-2">Thank You!</h3>
-        <p className="text-gray-600">We&apos;ll review your case and get back to you within 24 hours.</p>
+        <p className="text-gray-500">We&apos;ll review your case and get back to you within 24 hours.</p>
       </div>
     );
   }
@@ -44,7 +44,7 @@ export function ConsultationForm({ variant = "default" }: { variant?: "default" 
       }}
       className="space-y-5"
     >
-      <div className={variant === "compact" ? "grid grid-cols-1 sm:grid-cols-2 gap-4" : "grid grid-cols-1 md:grid-cols-2 gap-4"}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label htmlFor="firstName" className="block text-sm font-medium mb-1.5">
             First Name <span className="text-red">*</span>
@@ -53,7 +53,7 @@ export function ConsultationForm({ variant = "default" }: { variant?: "default" 
             type="text"
             id="firstName"
             required
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-steel focus:border-transparent text-gray-800"
+            className="w-full px-4 py-3 border border-gray-200 bg-white focus:outline-none focus:border-gold transition-colors text-gray-800"
             placeholder="John"
           />
         </div>
@@ -65,7 +65,7 @@ export function ConsultationForm({ variant = "default" }: { variant?: "default" 
             type="text"
             id="lastName"
             required
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-steel focus:border-transparent text-gray-800"
+            className="w-full px-4 py-3 border border-gray-200 bg-white focus:outline-none focus:border-gold transition-colors text-gray-800"
             placeholder="Doe"
           />
         </div>
@@ -79,7 +79,7 @@ export function ConsultationForm({ variant = "default" }: { variant?: "default" 
           type="email"
           id="email"
           required
-          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-steel focus:border-transparent text-gray-800"
+          className="w-full px-4 py-3 border border-gray-200 bg-white focus:outline-none focus:border-gold transition-colors text-gray-800"
           placeholder="john@example.com"
         />
       </div>
@@ -91,7 +91,7 @@ export function ConsultationForm({ variant = "default" }: { variant?: "default" 
         <input
           type="tel"
           id="phone"
-          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-steel focus:border-transparent text-gray-800"
+          className="w-full px-4 py-3 border border-gray-200 bg-white focus:outline-none focus:border-gold transition-colors text-gray-800"
           placeholder="(212) 555-0100"
         />
       </div>
@@ -103,7 +103,7 @@ export function ConsultationForm({ variant = "default" }: { variant?: "default" 
         <select
           id="caseType"
           required
-          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-steel focus:border-transparent text-gray-800 bg-white"
+          className="w-full px-4 py-3 border border-gray-200 bg-white focus:outline-none focus:border-gold transition-colors text-gray-800"
         >
           <option value="">Select a case type...</option>
           {caseTypes.map((type) => (
@@ -118,11 +118,11 @@ export function ConsultationForm({ variant = "default" }: { variant?: "default" 
         <label className="block text-sm font-medium mb-1.5">Is Your Company Unionized?</label>
         <div className="flex gap-6">
           <label className="flex items-center gap-2 cursor-pointer">
-            <input type="radio" name="unionized" value="yes" className="w-4 h-4 text-steel" />
+            <input type="radio" name="unionized" value="yes" className="w-4 h-4 accent-gold" />
             <span>Yes</span>
           </label>
           <label className="flex items-center gap-2 cursor-pointer">
-            <input type="radio" name="unionized" value="no" className="w-4 h-4 text-steel" />
+            <input type="radio" name="unionized" value="no" className="w-4 h-4 accent-gold" />
             <span>No</span>
           </label>
         </div>
@@ -136,15 +136,12 @@ export function ConsultationForm({ variant = "default" }: { variant?: "default" 
           id="description"
           required
           rows={4}
-          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-steel focus:border-transparent text-gray-800 resize-none"
+          className="w-full px-4 py-3 border border-gray-200 bg-white focus:outline-none focus:border-gold transition-colors text-gray-800 resize-none"
           placeholder="Please provide a brief description of your situation..."
         />
       </div>
 
-      <button
-        type="submit"
-        className="w-full bg-gold text-navy-dark py-4 rounded-lg font-medium hover:bg-gold-light transition-colors uppercase tracking-wider text-sm"
-      >
+      <button type="submit" className="w-full btn-primary text-center">
         Schedule My Free Consultation
       </button>
     </form>
