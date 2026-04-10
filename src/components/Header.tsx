@@ -59,25 +59,25 @@ export function Header() {
       } ${scrolled ? "bg-navy-dark/95 backdrop-blur-sm shadow-lg" : "bg-transparent"}`}
     >
       <nav className="container-main">
-        <div className="flex justify-between items-center h-[90px]">
+        <div className="flex justify-between items-center h-[110px]">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0 relative z-10">
             <Image
               src="/images/logo.png"
               alt="Stillman Legal P.C."
-              width={180}
-              height={111}
-              className="h-14 w-auto"
+              width={220}
+              height={136}
+              className="h-[70px] w-auto"
               priority
             />
           </Link>
 
           {/* Desktop nav - center */}
           <div className="hidden lg:flex items-center gap-8">
-            <Link href="/" className="text-white/90 hover:text-gold transition-colors text-[15px] font-light">
+            <Link href="/" className="text-white hover:text-gold transition-colors text-[16px]">
               Home
             </Link>
-            <Link href="/about" className="text-white/90 hover:text-gold transition-colors text-[15px] font-light">
+            <Link href="/about" className="text-white hover:text-gold transition-colors text-[16px]">
               About
             </Link>
 
@@ -108,7 +108,7 @@ export function Header() {
                     <Link
                       key={s.href}
                       href={s.href}
-                      className="flex items-center justify-between px-5 py-2.5 text-sm text-white/70 hover:text-gold hover:bg-white/5 transition-all group"
+                      className="flex items-center justify-between px-5 py-2.5 text-sm text-white hover:text-gold hover:bg-white/5 transition-all group"
                     >
                       <span>{s.label}</span>
                       <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -147,7 +147,7 @@ export function Header() {
                     <Link
                       key={s.href}
                       href={s.href}
-                      className="flex items-center justify-between px-5 py-2.5 text-sm text-white/70 hover:text-gold hover:bg-white/5 transition-all group"
+                      className="flex items-center justify-between px-5 py-2.5 text-sm text-white hover:text-gold hover:bg-white/5 transition-all group"
                     >
                       <span>{s.label}</span>
                       <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -159,7 +159,7 @@ export function Header() {
               </div>
             </div>
 
-            <Link href="/contact" className="text-white/90 hover:text-gold transition-colors text-[15px] font-light">
+            <Link href="/contact" className="text-white hover:text-gold transition-colors text-[16px]">
               Contact
             </Link>
           </div>
