@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { immigrationServices, getImmigrationService } from "@/data/immigration";
 import { ConsultationForm } from "@/components/ConsultationForm";
@@ -34,6 +35,18 @@ export default async function ImmigrationPage({
     <>
       {/* ── HERO ── */}
       <section className="relative bg-navy-dark text-white overflow-hidden pt-[180px] pb-[130px]">
+        {service.heroImage && (
+          <>
+            <Image
+              src={service.heroImage}
+              alt={service.title}
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/85 via-navy-dark/60 to-navy-dark/40" />
+          </>
+        )}
         <span className="ghost-text bottom-0 left-0 -translate-x-[5%] translate-y-[15%]">
           Details
         </span>

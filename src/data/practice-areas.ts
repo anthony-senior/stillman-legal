@@ -7,6 +7,7 @@ export interface PracticeArea {
   metaDescription: string;
   heroTitle: string;
   heroDescription: string;
+  heroImage?: string;
   layout: LayoutVariant;
   sections: {
     heading: string;
@@ -28,6 +29,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     slug: "wage-manipulation",
     title: "Wage Manipulation",
+    heroImage: "/images/nyc-skyline.jpg",
     metaTitle: "NYC Wage Theft & Wage Manipulation Lawyers | Overtime Pay Attorneys | Stillman Legal PC",
     metaDescription:
       "Is your employer not paying you your due wages for the work you have done? It is illegal for employers not to pay you your earned pay and overtime. Speak with wage theft and wage manipulation attorneys at Stillman Legal PC.",
@@ -55,6 +57,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     slug: "racial-discrimination",
     title: "Racial Discrimination",
+    heroImage: "/images/racial-discrimination.jpg",
     metaTitle: "New York City Race Discrimination Lawyers | Racial Discrimination Attorneys | Stillman Legal PC",
     metaDescription:
       "Experienced NYC racial discrimination attorneys. If you've faced racial discrimination at work, Stillman Legal P.C. will fight for justice. Free consultation.",
@@ -114,6 +117,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     slug: "disability-discrimination",
     title: "Disability Discrimination",
+    heroImage: "/images/disability-discrimination.jpg",
     metaTitle: "New York City Disability Discrimination Lawyers | Stillman Legal PC",
     metaDescription:
       "NYC disability discrimination attorneys protecting employee rights. If your employer discriminated against you due to a disability, we can help. Free consultation.",
@@ -154,6 +158,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     slug: "pregnancy-discrimination",
     title: "Pregnancy Discrimination",
+    heroImage: "/images/pregnancy-discrimination.jpg",
     metaTitle: "New York City Pregnancy Discrimination Lawyers | Stillman Legal PC",
     metaDescription:
       "Experienced pregnancy discrimination attorneys in NYC. If you've been discriminated against due to pregnancy, contact Stillman Legal P.C. for a free consultation.",
@@ -199,6 +204,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     slug: "age-discrimination",
     title: "Age Discrimination",
+    heroImage: "/images/age-discrimination.jpg",
     metaTitle: "New York City Age Discrimination Lawyers | Stillman Legal PC",
     metaDescription:
       "NYC age discrimination attorneys fighting for workers over 40. If you've faced age-based discrimination, Stillman Legal P.C. offers free consultations.",
@@ -233,6 +239,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     slug: "gender-sex-discrimination",
     title: "Gender & Sex Discrimination",
+    heroImage: "/images/gender-discrimination.jpg",
     metaTitle: "New York City Gender Discrimination Attorney | Sex Discrimination Lawyer | Stillman Legal PC",
     metaDescription:
       "NYC sexual harassment and gender discrimination attorneys. If you've experienced workplace harassment or sex discrimination, contact Stillman Legal P.C.",
@@ -268,6 +275,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     slug: "sexual-orientation-discrimination",
     title: "Sexual Orientation Discrimination",
+    heroImage: "/images/sexual-orientation-discrimination.jpg",
     metaTitle: "New York City Sexual Orientation Discrimination Lawyers | Gay, LGBTQ+ Discrimination Attorneys | Stillman Legal PC",
     metaDescription:
       "NYC attorneys fighting sexual orientation discrimination in the workplace. Stillman Legal P.C. protects LGBTQ+ employee rights. Free consultation.",
@@ -323,6 +331,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     slug: "religious-discrimination",
     title: "Religious Discrimination",
+    heroImage: "/images/religious-discrimination.jpg",
     metaTitle: "New York City Religious Discrimination Lawyers | Stillman Legal PC",
     metaDescription:
       "NYC religious discrimination attorneys. If your employer discriminated against you based on religion, Stillman Legal P.C. can help. Free consultation.",
@@ -364,6 +373,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     slug: "retaliation-discrimination",
     title: "Retaliation",
+    heroImage: "/images/retaliation-discrimination.jpg",
     metaTitle: "New York City Retaliation Discrimination Lawyers | Whistleblower Attorneys | Stillman Legal PC",
     metaDescription:
       "NYC retaliation attorneys. If your employer retaliated against you for reporting discrimination or violations, Stillman Legal P.C. will fight for you.",
@@ -393,6 +403,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     slug: "hair-discrimination",
     title: "Hair Discrimination",
+    heroImage: "/images/hair-discrimination.jpg",
     metaTitle: "New York City Hair Discrimination Lawyers | Stillman Legal PC",
     metaDescription:
       "NYC hair discrimination attorneys. New York City law protects your right to wear natural hairstyles at work. Free consultation with Stillman Legal P.C.",
@@ -426,6 +437,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     slug: "nationality-discrimination",
     title: "Nationality Discrimination",
+    heroImage: "/images/nationality-discrimination.jpg",
     metaTitle: "New York City Nationality Discrimination Attorneys | National Origin Discrimination Lawyers | Stillman Legal PC",
     metaDescription:
       "NYC national origin discrimination attorneys. If you've been discriminated against based on nationality, contact Stillman Legal P.C. for a free consultation.",
@@ -461,6 +473,7 @@ export const practiceAreas: PracticeArea[] = [
   {
     slug: "workplace-disability-accommodation",
     title: "Workplace Disability Accommodation",
+    heroImage: "/images/workplace-accommodation.jpg",
     metaTitle: "New York City Workplace Disability Accommodation Lawyers | Stillman Legal PC",
     metaDescription:
       "NYC workplace disability accommodation attorneys. If your employer denied reasonable accommodations, Stillman Legal P.C. can help. Free consultation.",

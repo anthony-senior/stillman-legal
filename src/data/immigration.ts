@@ -4,6 +4,7 @@ export interface ImmigrationService {
   metaTitle: string;
   metaDescription: string;
   heroDescription: string;
+  heroImage?: string;
   sections: {
     heading: string;
     content: string[];
@@ -18,6 +19,7 @@ export interface ImmigrationService {
 export const immigrationServices: ImmigrationService[] = [
   {
     slug: "green-card",
+    heroImage: "/images/green-card.webp",
     title: "Green Card Applications",
     metaTitle: "Apply for Green Card | NYC Immigration Lawyers | Stillman Legal PC",
     metaDescription:
@@ -45,6 +47,7 @@ export const immigrationServices: ImmigrationService[] = [
   },
   {
     slug: "citizenship",
+    heroImage: "/images/citizenship.jpg",
     title: "Citizenship Applications",
     metaTitle: "Apply for U.S. Citizenship | NYC Immigration Lawyers | Stillman Legal PC",
     metaDescription:
@@ -81,6 +84,7 @@ export const immigrationServices: ImmigrationService[] = [
   },
   {
     slug: "asylum",
+    heroImage: "/images/asylum.webp",
     title: "Asylum Applications",
     metaTitle: "Apply for Asylum | NYC Immigration Lawyers | Stillman Legal PC",
     metaDescription:
@@ -122,6 +126,7 @@ export const immigrationServices: ImmigrationService[] = [
   },
   {
     slug: "naturalization",
+    heroImage: "/images/family-visas.jpeg",
     title: "Family Visas",
     metaTitle: "Apply for Family Visas | NYC Immigration Lawyers | Stillman Legal PC",
     metaDescription:
@@ -165,6 +170,7 @@ export const immigrationServices: ImmigrationService[] = [
   },
   {
     slug: "daca",
+    heroImage: "/images/daca-1.jpg",
     title: "DACA",
     metaTitle: "DACA Applications & Renewals | NYC Immigration Lawyers | Stillman Legal PC",
     metaDescription:
@@ -201,6 +207,7 @@ export const immigrationServices: ImmigrationService[] = [
   },
   {
     slug: "waivers",
+    heroImage: "/images/waivers.jpg",
     title: "Immigration Waivers",
     metaTitle: "Immigration Waivers | NYC Immigration Lawyers | Stillman Legal PC",
     metaDescription:
@@ -233,6 +240,7 @@ export const immigrationServices: ImmigrationService[] = [
   },
   {
     slug: "lgbtq-marriage",
+    heroImage: "/images/lgbtq-1.webp",
     title: "LGBTQ+ Marriage & Fianc\u00e9(e) Immigration",
     metaTitle: "LGBTQ+ Marriage & Immigration | NYC Immigration Lawyers | Stillman Legal PC",
     metaDescription:

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ConsultationForm } from "@/components/ConsultationForm";
 
 export const metadata: Metadata = {
@@ -12,6 +13,14 @@ export default function AboutPage() {
     <>
       {/* ── HERO ── */}
       <section className="relative bg-navy-dark text-white overflow-hidden pt-[180px] pb-[130px]">
+        <Image
+          src="/images/lina-portrait.jpg"
+          alt="Lina Stillman - Founding Attorney"
+          fill
+          className="object-cover object-top"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/90 via-navy-dark/70 to-navy-dark/40" />
         <span className="ghost-text bottom-0 left-0 -translate-x-[5%] translate-y-[15%]">
           About
         </span>
