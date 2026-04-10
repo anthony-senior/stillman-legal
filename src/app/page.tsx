@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ConsultationForm } from "@/components/ConsultationForm";
 import { practiceAreas } from "@/data/practice-areas";
 
@@ -13,12 +14,23 @@ export default function Home() {
     <>
       {/* ── HERO ── */}
       <section className="relative bg-navy-dark min-h-screen flex items-center overflow-hidden">
+        {/* Background image of Lina */}
+        <Image
+          src="/images/hero-lina.jpg"
+          alt="Lina Stillman - NYC Employment Attorney"
+          fill
+          className="object-cover object-top"
+          priority
+        />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/90 via-navy-dark/70 to-navy-dark/40" />
+
         {/* Ghost text watermark */}
         <span className="ghost-text bottom-0 left-0 translate-y-[10%]">
           Justice
         </span>
 
-        <div className="container-main relative z-10 pt-[140px] pb-[120px]">
+        <div className="container-main relative z-10 pt-[160px] pb-[120px]">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-16">
             {/* Left: heading */}
             <div className="lg:max-w-[700px]">
@@ -31,8 +43,8 @@ export default function Home() {
             </div>
 
             {/* Right: description + CTAs */}
-            <div className="lg:max-w-[380px]">
-              <p className="text-white/50 text-lg leading-relaxed mb-4">
+            <div className="lg:max-w-[420px]">
+              <p className="text-white/70 text-lg leading-relaxed mb-4">
                 Illegal workplace discrimination? Sexual harassment? We will fight aggressively -- inside
                 and outside the courtroom -- to protect your rights.
               </p>

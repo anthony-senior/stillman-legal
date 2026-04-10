@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { SearchOverlay } from "./SearchOverlay";
 
 const employmentServices = [
   { label: "Wage Manipulation", href: "/practice-areas/wage-manipulation" },
@@ -35,7 +36,9 @@ export function Header() {
   const [immOpen, setImmOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
+  const [searchOpen, setSearchOpen] = useState(false);
   const lastScrollY = useRef(0);
+  const closeSearch = useCallback(() => setSearchOpen(false), []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,6 +56,7 @@ export function Header() {
   }, []);
 
   return (
+    <>
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         visible ? "translate-y-0" : "-translate-y-full"
@@ -164,8 +168,17 @@ export function Header() {
             </Link>
           </div>
 
-          {/* CTA button - right */}
-          <div className="hidden lg:block">
+          {/* Search + CTA - right */}
+          <div className="hidden lg:flex items-center gap-5">
+            <button
+              onClick={() => setSearchOpen(true)}
+              className="text-white hover:text-gold transition-colors p-2"
+              aria-label="Search"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+              </svg>
+            </button>
             <a href="#consultation" className="btn-primary">
               Free Consultation
             </a>
@@ -255,6 +268,15 @@ export function Header() {
             <Link href="/contact" className="block py-3 text-white hover:text-gold transition-colors" onClick={() => setMobileOpen(false)}>
               Contact
             </Link>
+            <button
+              onClick={() => { setMobileOpen(false); setSearchOpen(true); }}
+              className="flex items-center gap-3 py-3 text-white hover:text-gold transition-colors w-full"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+              </svg>
+              Search
+            </button>
             <a
               href="#consultation"
               className="block text-center btn-primary mt-4"
@@ -266,5 +288,7 @@ export function Header() {
         </div>
       </nav>
     </header>
+    <SearchOverlay isOpen={searchOpen} onClose={closeSearch} />
+    </>
   );
 }
