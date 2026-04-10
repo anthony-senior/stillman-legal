@@ -77,57 +77,105 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── MISSION SECTION ── */}
+      {/* ── MISSION SECTION with Lina's photo ── */}
       <section className="section-padding">
         <div className="container-main">
-          <div className="max-w-[800px] mb-16">
+          {/* Heading with gold bar */}
+          <div className="max-w-[800px] mb-4">
+            <p className="section-label">Stillman Legal P.C.</p>
             <h2 className="font-heading text-3xl md:text-4xl lg:text-[44px] lg:leading-[52px] text-navy capitalize">
-              Our Mission Is To <span className="text-gold">Fight</span> For The Rights
+              New York Employment Lawyers. <span className="text-gold">Exclusively</span> Serving New York Employees
             </h2>
           </div>
+          <div className="w-[200px] h-[4px] bg-gold mb-16" />
 
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-[80px]">
-            {/* Left: about text */}
-            <div className="lg:w-[55%] space-y-6 text-gray-500 text-lg leading-relaxed">
-              <p>
-                I founded my practice, Stillman Legal P.C., to serve the working people of New York --
-                exclusively!
-              </p>
-              <p>
-                As an employment law attorney with over a decade of experience, I have honed my skills
-                working exclusively for employees. I know all the employer&apos;s tricks and strategies,
-                and I&apos;m on your side. I strive to help employees navigate the complicated legal
-                landscape at work and advocate for them at all stages of their employment.
-              </p>
-              <p>
-                In today&apos;s legal environment, you must select an Employment Lawyer whose experience
-                and knowledge are most appropriate for your case. I represent clients in a wide range
-                of employment law cases, including claims for sexual harassment, discrimination, and
-                wage theft. I have dedicated my entire legal career exclusively to the practice of
-                Employment Law.
-              </p>
-              <p>
-                Employment Law is what I do! I love helping workers treated unfairly at work. I counsel
-                employees on their legal rights. It is my job to make sure that you can do your job,
-                free from unlawful practices.
-              </p>
+            {/* Left: Lina's photo */}
+            <div className="lg:w-[45%]">
+              <div className="relative">
+                <Image
+                  src="/images/lina-portrait.jpg"
+                  alt="Lina Stillman - NYC Employment Lawyer and Founding Attorney of Stillman Legal P.C."
+                  width={600}
+                  height={800}
+                  className="w-full h-auto object-cover"
+                />
+                {/* Decorative gold corner accent */}
+                <div className="absolute -top-4 -right-4 w-24 h-24 border-t-4 border-r-4 border-gold hidden lg:block" />
+              </div>
             </div>
 
-            {/* Right: experience block */}
-            <div className="lg:w-[45%]">
-              <div className="bg-gold-10 p-10 lg:p-12">
-                <h3 className="font-heading text-2xl text-navy mb-6">A Diverse Perspective</h3>
-                <p className="text-gray-500 leading-relaxed mb-6">
+            {/* Right: about text */}
+            <div className="lg:w-[55%]">
+              <p className="section-label">About Stillman Legal</p>
+              <h3 className="font-heading text-2xl md:text-3xl text-navy mb-2">
+                Fierce Legal Champions of New York Employee Rights
+              </h3>
+              <div className="w-[120px] h-[3px] bg-gold mb-8" />
+
+              <div className="space-y-6 text-gray-500 text-lg leading-relaxed">
+                <p>
+                  I founded my practice, Stillman Legal P.C., to serve the working people of New York --
+                  exclusively!
+                </p>
+                <p>
+                  As an employment law attorney with over a decade of experience, I have honed my skills
+                  working exclusively for employees. I know all the employer&apos;s tricks and strategies,
+                  and I&apos;m on your side. I strive to help employees navigate the complicated legal
+                  landscape at work and advocate for them at all stages of their employment.
+                </p>
+                <p>
+                  In today&apos;s legal environment, you must select an Employment Lawyer whose experience
+                  and knowledge are most appropriate for your case. I represent clients in a wide range
+                  of employment law cases, including claims for sexual harassment, discrimination, and
+                  wage theft. I have dedicated my entire legal career exclusively to the practice of
+                  Employment Law.
+                </p>
+                <p>
+                  Employment Law is what I do! I love helping workers treated unfairly at work. I counsel
+                  employees on their legal rights. It is my job to make sure that you can do your job,
+                  free from unlawful practices.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── EXPERIENCE SECTION ── */}
+      <section className="section-padding bg-offwhite">
+        <div className="container-main">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-[80px] items-center">
+            <div className="lg:w-[55%]">
+              <h3 className="font-heading text-2xl md:text-3xl text-navy mb-2">A Diverse Perspective</h3>
+              <div className="w-[120px] h-[3px] bg-gold mb-8" />
+              <div className="space-y-6 text-gray-500 text-lg leading-relaxed">
+                <p>
                   Having worked exclusively as an employment lawyer, I bring a unique perspective from
                   representing employees and freelancers across many sectors.
                 </p>
-                <p className="text-gray-500 leading-relaxed">
+                <p>
+                  I am very familiar with the claims, defenses, strategies, and tactics used by all
+                  parties that generally participate in Employment law. A large part of my practice
+                  involves representing employees in class actions and collective actions challenging
+                  unlawful pay practices, including wage and hour violations.
+                </p>
+                <p>
                   I have successfully represented clients in federal and state courts; in arbitration
                   before the Human Rights Division of the State of New York; the United States Equal
                   Employment Opportunity Commission (EEOC); the New York State Department of Labor and
                   the National Labor Relations Board.
                 </p>
               </div>
+            </div>
+            <div className="lg:w-[45%]">
+              <Image
+                src="/images/nyc-skyline.jpg"
+                alt="New York City - where millions of employees need an employment attorney"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover"
+              />
             </div>
           </div>
         </div>
