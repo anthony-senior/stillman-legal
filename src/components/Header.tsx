@@ -91,7 +91,7 @@ export function Header() {
               onMouseEnter={() => setEmpOpen(true)}
               onMouseLeave={() => setEmpOpen(false)}
             >
-              <button className="text-navy hover:text-gold transition-colors flex items-center gap-1.5 text-[16px]">
+              <button className="text-navy hover:text-gold transition-colors flex items-center gap-1.5 text-[17px] font-semibold">
                 Employment Services
                 <svg
                   className={`w-3.5 h-3.5 transition-transform duration-300 ${empOpen ? "rotate-180" : ""}`}
@@ -130,7 +130,7 @@ export function Header() {
               onMouseEnter={() => setImmOpen(true)}
               onMouseLeave={() => setImmOpen(false)}
             >
-              <button className="text-navy hover:text-gold transition-colors flex items-center gap-1.5 text-[16px]">
+              <button className="text-navy hover:text-gold transition-colors flex items-center gap-1.5 text-[17px] font-semibold">
                 Immigration Services
                 <svg
                   className={`w-3.5 h-3.5 transition-transform duration-300 ${immOpen ? "rotate-180" : ""}`}
