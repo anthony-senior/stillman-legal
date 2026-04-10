@@ -78,10 +78,10 @@ export function Header() {
 
           {/* Desktop nav - center */}
           <div className="hidden lg:flex items-center gap-8">
-            <Link href="/" className="text-navy hover:text-gold transition-colors text-[16px]">
+            <Link href="/" className="text-navy hover:text-gold transition-colors text-[17px] font-semibold">
               Home
             </Link>
-            <Link href="/about" className="text-navy hover:text-gold transition-colors text-[16px]">
+            <Link href="/about" className="text-navy hover:text-gold transition-colors text-[17px] font-semibold">
               About
             </Link>
 
@@ -112,7 +112,7 @@ export function Header() {
                     <Link
                       key={s.href}
                       href={s.href}
-                      className="flex items-center justify-between px-5 py-2.5 text-sm text-white hover:text-gold hover:bg-white/5 transition-all group"
+                      className="flex items-center justify-between px-5 py-2.5 text-[15px] font-medium text-white hover:text-gold hover:bg-white/5 transition-all group"
                     >
                       <span>{s.label}</span>
                       <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -151,7 +151,7 @@ export function Header() {
                     <Link
                       key={s.href}
                       href={s.href}
-                      className="flex items-center justify-between px-5 py-2.5 text-sm text-white hover:text-gold hover:bg-white/5 transition-all group"
+                      className="flex items-center justify-between px-5 py-2.5 text-[15px] font-medium text-white hover:text-gold hover:bg-white/5 transition-all group"
                     >
                       <span>{s.label}</span>
                       <svg className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -163,7 +163,7 @@ export function Header() {
               </div>
             </div>
 
-            <Link href="/contact" className="text-navy hover:text-gold transition-colors text-[16px]">
+            <Link href="/contact" className="text-navy hover:text-gold transition-colors text-[17px] font-semibold">
               Contact
             </Link>
           </div>
