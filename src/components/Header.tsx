@@ -58,9 +58,9 @@ export function Header() {
   return (
     <>
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white shadow-md ${
         visible ? "translate-y-0" : "-translate-y-full"
-      } ${scrolled ? "bg-navy-dark/95 backdrop-blur-sm shadow-lg" : "bg-transparent"}`}
+      }`}
     >
       <nav className="container-main">
         <div className="flex justify-between items-center h-[110px]">
@@ -78,10 +78,10 @@ export function Header() {
 
           {/* Desktop nav - center */}
           <div className="hidden lg:flex items-center gap-8">
-            <Link href="/" className="text-white hover:text-gold transition-colors text-[16px]">
+            <Link href="/" className="text-navy hover:text-gold transition-colors text-[16px]">
               Home
             </Link>
-            <Link href="/about" className="text-white hover:text-gold transition-colors text-[16px]">
+            <Link href="/about" className="text-navy hover:text-gold transition-colors text-[16px]">
               About
             </Link>
 
@@ -91,7 +91,7 @@ export function Header() {
               onMouseEnter={() => setEmpOpen(true)}
               onMouseLeave={() => setEmpOpen(false)}
             >
-              <button className="text-white/90 hover:text-gold transition-colors flex items-center gap-1.5 text-[15px] font-light">
+              <button className="text-navy hover:text-gold transition-colors flex items-center gap-1.5 text-[16px]">
                 Employment Services
                 <svg
                   className={`w-3.5 h-3.5 transition-transform duration-300 ${empOpen ? "rotate-180" : ""}`}
@@ -130,7 +130,7 @@ export function Header() {
               onMouseEnter={() => setImmOpen(true)}
               onMouseLeave={() => setImmOpen(false)}
             >
-              <button className="text-white/90 hover:text-gold transition-colors flex items-center gap-1.5 text-[15px] font-light">
+              <button className="text-navy hover:text-gold transition-colors flex items-center gap-1.5 text-[16px]">
                 Immigration Services
                 <svg
                   className={`w-3.5 h-3.5 transition-transform duration-300 ${immOpen ? "rotate-180" : ""}`}
@@ -163,7 +163,7 @@ export function Header() {
               </div>
             </div>
 
-            <Link href="/contact" className="text-white hover:text-gold transition-colors text-[16px]">
+            <Link href="/contact" className="text-navy hover:text-gold transition-colors text-[16px]">
               Contact
             </Link>
           </div>
@@ -172,7 +172,7 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-5">
             <button
               onClick={() => setSearchOpen(true)}
-              className="text-white hover:text-gold transition-colors p-2"
+              className="text-navy hover:text-gold transition-colors p-2"
               aria-label="Search"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -186,7 +186,7 @@ export function Header() {
 
           {/* Mobile hamburger */}
           <button
-            className="lg:hidden text-white p-2 relative z-10"
+            className="lg:hidden text-navy p-2 relative z-10"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
